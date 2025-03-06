@@ -1,25 +1,26 @@
-public class Main {
-    public static int calculatePunchDamage(int strength){
-        return strength * 2;
-    }
+import javax.swing.plaf.synth.SynthTextAreaUI;
 
-    public static int calculateSpecialAttackDamage(int strength, String attackType){
-        int damage = strength;
-        if(attackType.equals("Fire Punch")) {
-            damage *= 3;
-            } else if (attackType.equals("Ice Blast")) {
-            damage *= 2;
-        }
-        return damage;
-    }
+public class Main {
 
     public static void main(String[] args) {
-        int villainHealth = 100;
-        int punchStrength = 20;
-        String attackType = "Fire Punch";
+        Hero fireFist = new Hero();
+        fireFist.name = "Fire Fist";
+        System.out.println("Name of the Hero: " + fireFist.name);
 
-        int damageByPunch = villainHealth - calculatePunchDamage(punchStrength);
-        int damageBySpecialAttack = calculateSpecialAttackDamage(punchStrength, attackType);
+        int punchDamage = fireFist.calculatePunchDamage();
+        System.out.println("Ouch, your punch caused "
+                + punchDamage + "% damage.");
+
+        Hero frostBlizzard = new Hero();
+        frostBlizzard.name = "Frost Blizzard";
+        frostBlizzard.strength = 35;
+
+        int specialAttackDamage =
+                frostBlizzard.calculateSpecialAttackDamage(
+                        "Ice Blast");
+        System.out.println("Your Ice Blast Scorches for "
+               + specialAttackDamage + "% damage. ");
     }
+
 }
 
