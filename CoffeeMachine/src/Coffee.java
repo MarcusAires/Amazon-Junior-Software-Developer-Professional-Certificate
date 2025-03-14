@@ -15,23 +15,6 @@ public class Coffee {
         // The constructor calls the method to set the caffeine level based on the roast
         setCaffeineLevel();
     }
-    // TODO 2: inherit from Coffee using the extends keyword
-    public class Espresso extends Coffee{
-        // TODO 3: declare an attribute to store the number of shots (int)
-        int numberOfShots;
-        // TODO 4: constructor to initialize all attributes
-        public Espresso(String name, String roast, double price, int numberOfShots) {
-            // TODO 5: use super to call the Coffee constructor
-            super(name,roast,price,numberOfShots);
-            // TODO 6: initialize numberOfShots using this
-            this.numberOfShots = numberOfShots;
-        }
-
-        // TODO 7: define a method to print a message about the number of servings, cost per serving, and total bill
-        public void printEspressoDetails(){
-            System.out.println("you Asked for: " + numberOfShots + "Every Serving of "+ name +" costs "+price+". Your total bill is "+numberOfShots*price);
-        }
-    }
 
     // Method to set the caffeine level of the coffee based on the roast
     public void setCaffeineLevel() {
