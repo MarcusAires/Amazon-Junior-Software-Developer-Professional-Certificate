@@ -9,10 +9,10 @@ public class Main {
         // Variable to hold the BMI category determined by this BMI Calculator
         String bmiCategory;
 
-        // Please initialize this reference variable to create an object of the UserInput class
-        UserInput userInput;
+        // Please initialize this reference variable to create an object of the UserInput class// To be implemented by the learner
+        UserInput userInput = new UserInput();
         // Please initialize this reference variable to create an object of the BMICalculator class
-        BMICalculator bmiCalculator;
+        BMICalculator bmiCalculator = new BMICalculator();
 
         // Invoke the obtainBMISystem() of the UserInput class
         bmiSystem = userInput.obtainBMISystem();
@@ -21,22 +21,22 @@ public class Main {
         switch (bmiSystem.toUpperCase()) {
             // The case of IMPERIAL BMI system
             case "IMPERIAL":
-                // Please invoke the obtainWeight() method of the UserInput class and assign it to the variable weight
-
-                // Please invoke the obtainHeight() method of the UserInput class and assign it to the variable height
-
-                // Please invoke the calculateBmiImperial() method of the BMICalculator class
-
+                // Invoking the obtainWeight() method of the UserInput class and assigning it to the variable weight
+                weight = userInput.obtainWeight(bmiSystem);
+                // Invoking the obtainHeight() method of the UserInput class and assigning it to the variable height
+                height = userInput.obtainHeight(bmiSystem);
+                // Invoking the calculateBmiImperial() method of the BMICalculator class
+                bmi = bmiCalculator.calculateBmiImperial(weight,height);
                 // Break out of the switch statement
                 break;
             // The case of METRIC BMI system
             case "METRIC":
-                // Please invoke the obtainWeight() method of the UserInput class and assign it to the variable weight
-
-                // Please invoke the obtainHeight() method of the UserInput class and assign it to the variable height
-
-                // Please invoke the calculateBmiMetric() method of the BMICalculator class
-
+                // Invoking the obtainWeight() method of the UserInput class and assigning it to the variable weight
+                weight = userInput.obtainWeight(bmiSystem);
+                // Invoking the obtainHeight() method of the UserInput class and assigning it to the variable height
+                height = userInput.obtainHeight(bmiSystem);
+                // Invoking the calculateBmiMetric() method of the BMICalculator class
+                bmi = bmiCalculator.calculateBmiMetric(weight,height);
                 // Break out of the switch statement
                 break;
             // The case of empty BMI system due to invalid user input
@@ -50,7 +50,8 @@ public class Main {
         // Display the calculated BMI value to the user
         System.out.println("Your BMI is: " + bmi);
 
-        // Please invoke the getBMICategory() method of the BMICalculator class and assign the result to the bmiCategory variable
+        // Invoking the getBMICategory() method of the BMICalculator class and assigning the result to the bmiCategory variable
+        bmiCategory = bmiCalculator.getBMICategory(bmi);
 
         // Display the BMI category to the user
         System.out.println("Your BMI category is: " + bmiCategory);

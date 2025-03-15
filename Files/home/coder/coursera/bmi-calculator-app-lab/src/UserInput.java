@@ -3,9 +3,9 @@ import java.util.Scanner;
 // The UserInput class implements methods that are used to obtain user inputs for BMI calculation
 public class UserInput {
 
-    // Obtains user input for the preferred BMI system
+    // Method that obtains user input for the preferred BMI system
     public String obtainBMISystem() {
-        // Display the welcome message to the user
+        // Displaying the welcome message to the user
         System.out.println("Welcome to the BMI calculator app!");
         System.out.print("Please select the preferred BMI calculation system (Imperial/Metric):");
 
@@ -25,7 +25,7 @@ public class UserInput {
         return bmiSystem;
     }
 
-    // Obtains user input for the weight in Pounds or Kilos, based on the entered BMI system
+    // Method that obtains user input for the weight in Pounds or Kilos, based on the entered BMI system
     public double obtainWeight(String bmiSystem) {
         // Variable to store the weight value
         double weight = 0;
@@ -35,7 +35,8 @@ public class UserInput {
         // The loop that controls obtaining user input for weight until a valid value is entered
         while (isInvalidInput) {
             // Scanner that captures user input for the weight value
-        Scanner input = new Scanner(System.in);
+            Scanner input = new Scanner(System.in);
+
             // A Switch statement that determines if weight should be obtained in Pounds or Kilos based on the BMI system
             switch (bmiSystem.toUpperCase()) {
                 // The case of IMPERIAL BMI system
@@ -76,8 +77,55 @@ public class UserInput {
         return weight;
     }
 
-    // Please implement the obtainHeight() method to obtains user input for the height in Inches or Meters, based on the entered BMI system
+    // Method that obtains user input for the height in Inches or Meters, based on the entered BMI system
     public double obtainHeight(String bmiSystem) {
+        // Variable to store the height value
+        double height = 0;
+        // Variable to indicate if the user input is valid or not
+        boolean isInvalidInput = true;
 
+        // The loop that controls obtaining user input for height until a valid value is entered
+        while(isInvalidInput) {
+            // Scanner that captures user input for the height value
+            Scanner input = new Scanner(System.in);
+
+            // A Switch statement that determines if height should be obtained in Inches or Meters based on the BMI system
+            switch (bmiSystem.toUpperCase()) {
+                // The case of IMPERIAL BMI system
+                case "IMPERIAL":
+                    // Display the message to obtain height in Inches
+                    System.out.print("Enter height in Inches:");
+                    // Break out of the switch statement
+                    break;
+                // The case of METRIC BMI system
+                case "METRIC":
+                    // Display the message to obtain height in Meters
+                    System.out.print("Enter weight in Meters:");
+                    // Break out of the switch statement
+                    break;
+                // The case of empty BMI system due to invalid user input
+                case "":
+                    // Display the message to ask the user to enter a valid value for BMI system
+                    System.out.println("Please Enter a valid BMI System as input");
+                    // Break out of the switch statement
+                    break;
+            }
+
+            // An if statement that checks if the user has entered a valid value (double value) for height
+            if (input.hasNextDouble()) {
+                // Read the double height value from the Scanner object "input"
+                height = input.nextDouble();
+                // Set that the user input is not invalid
+                isInvalidInput = false;
+            } else {
+                // Display a message asking the user to input a valid value, in case of invalid user input
+                System.out.println("Please enter a valid height");
+                // Set the height to 0
+                height = 0;
+            }
+        }
+
+        // Return the height value
+        return height;
     }
 }
